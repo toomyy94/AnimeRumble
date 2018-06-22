@@ -13,7 +13,8 @@ public class AnimeRumble {
     public static void main(String[] args) {
         System.out.println(FuncAux.printTabs(3) + "ANIME FIGHT");
         System.out.println(FuncAux.printTabs(2) + "Created by: Tomas Rodrigues" + FuncAux.printLines(2));
-
+            
+        //Initial menu
         int op = -1;
         do {
             System.out.println(FuncAux.printTabs(2) + "Choose a option:");
@@ -42,16 +43,19 @@ public class AnimeRumble {
         Player player1 = new Player();
         Player player2 = new Player();
         EventsManager eventsManager = new EventsManager();
-
+        
+        //Set player's name
         System.out.print("Player1's name: ");
         player1.setName(sc.next());
         System.out.print("Player2's name: ");
         player2.setName(sc.next());
         System.out.println("\n");
-
+        
+        //Set player's character
         selectCharacter(player1);
         selectCharacter(player2);
 
+        //Game On!
         System.out.print(FuncAux.printTabs(3) + player1.getCharacter() + " vs " + player2.getCharacter() + FuncAux.printLines(3));
         while ((player1.getHp() > 0) || (player2.getHp() > 0)) {
             playerTurn(player1, player2, eventsManager);
@@ -65,6 +69,7 @@ public class AnimeRumble {
 
         System.out.print(FuncAux.printTabs(3) + "  |" + player.getName() + "'s turn|\n");
 
+        //Choose attack
         FuncAux.printSkills(player);
         do {
             try {
@@ -97,6 +102,7 @@ public class AnimeRumble {
             directionAvailable = FuncAux.isDirectionAvailable(chosenSkill, chosenDirection);
         } while (!directionAvailable);
         
+        //Opponent avoidding attack
         if ((chosenSkill == 1) || (chosenSkill == 4)) 
             System.out.println(player.getName() + " is sending to you a powerfull atack.");
         
@@ -119,8 +125,10 @@ public class AnimeRumble {
         else 
             System.out.print(opponent.getName() + " dodged the attack!" + FuncAux.printLines(2));
         
+        //Random event generator
         EventsManager.rollHpEvent(player);
 
+        //Check game ending
         FuncAux.printBothPlayersHp(player, opponent);
         FuncAux.checkGameEnd(player, opponent);
     }
