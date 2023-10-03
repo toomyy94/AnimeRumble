@@ -1,6 +1,6 @@
 # AnimeRumble
 
-This was my first homemade project, right after i learned to code in Java in university. Now I'm evolving this into a UI [in progress...]
+This was my first homemade project, right after i learned to code in Java. Now I'm evolving this into a UI [in progress...]
 
 This is a 2 Player Game developed in Java. 
 Fight in "pokemon" style with your favorite animes.
